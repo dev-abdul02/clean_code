@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "1EBD4390-AAB7-4FB3-83C2-276A5A50B703",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CleanCode.xcodeproj",
+      "identifier" : "96AEE92A2A755A7B00E3B75D",
+      "name" : "CleanCode"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CleanCode.xcodeproj",
+        "identifier" : "96AEE9472A755C4100E3B75D",
+        "name" : "CleanCodeTests"
+      }
+    }
+  ],
+  "version" : 1
+}
