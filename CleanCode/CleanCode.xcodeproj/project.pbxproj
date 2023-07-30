@@ -14,7 +14,7 @@
 		96AEE9382A755A7C00E3B75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AEE9372A755A7C00E3B75D /* Assets.xcassets */; };
 		96AEE93B2A755A7C00E3B75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96AEE9392A755A7C00E3B75D /* LaunchScreen.storyboard */; };
 		96AEE94B2A755C4100E3B75D /* CleanCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AEE94A2A755C4100E3B75D /* CleanCodeTests.swift */; };
-		96AEE9522A755D6C00E3B75D /* UserListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AEE9512A755D6C00E3B75D /* UserListTest.swift */; };
+		96AEE9522A755D6C00E3B75D /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AEE9512A755D6C00E3B75D /* NetworkTests.swift */; };
 		96AEE95A2A7561AD00E3B75D /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AEE9582A7561AD00E3B75D /* UserListTableViewCell.swift */; };
 		96AEE95B2A7561AD00E3B75D /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96AEE9592A7561AD00E3B75D /* UserListTableViewCell.xib */; };
 		96AEE95E2A75634E00E3B75D /* ViewFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AEE95D2A75634E00E3B75D /* ViewFromNib.swift */; };
@@ -50,7 +50,7 @@
 		96AEE93C2A755A7C00E3B75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96AEE9482A755C4100E3B75D /* CleanCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96AEE94A2A755C4100E3B75D /* CleanCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanCodeTests.swift; sourceTree = "<group>"; };
-		96AEE9512A755D6C00E3B75D /* UserListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTest.swift; sourceTree = "<group>"; };
+		96AEE9512A755D6C00E3B75D /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		96AEE9582A7561AD00E3B75D /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		96AEE9592A7561AD00E3B75D /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
 		96AEE95D2A75634E00E3B75D /* ViewFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFromNib.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		96AEE9492A755C4100E3B75D /* CleanCodeTests */ = {
 			isa = PBXGroup;
 			children = (
-				96AEE9512A755D6C00E3B75D /* UserListTest.swift */,
+				96AEE9512A755D6C00E3B75D /* NetworkTests.swift */,
 				96AEE94A2A755C4100E3B75D /* CleanCodeTests.swift */,
 			);
 			path = CleanCodeTests;
@@ -333,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96AEE9522A755D6C00E3B75D /* UserListTest.swift in Sources */,
+				96AEE9522A755D6C00E3B75D /* NetworkTests.swift in Sources */,
 				96AEE94B2A755C4100E3B75D /* CleanCodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
