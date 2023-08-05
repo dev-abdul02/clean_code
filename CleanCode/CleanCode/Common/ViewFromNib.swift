@@ -27,8 +27,4 @@ extension ViewFromNib {
     static func registerCellForCollectionView(_ collectionView: UICollectionView) {
         collectionView.register(nib, forCellWithReuseIdentifier: nibName)
     }
-    
-    static func viewController<T: UIViewController>() -> T? {
-        return T(nibName: nibName, bundle: nil)
-    }
 }

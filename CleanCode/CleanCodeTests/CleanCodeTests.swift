@@ -10,18 +10,13 @@ import XCTest
 
 final class CleanCodeTests: XCTestCase {
     
-    var userListViewModel:UserListViewModel?
+    var userListViewModel:UserListViewModel!
+    var mockAPIService:MockAPIService!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        userListViewModel = UserListViewModel()
-        
-        do {
-           try addMockData()
-        }
-        catch {
-            debugPrint("error adding mock")
-        }
+        mockAPIService = MockAPIService()
+        userListViewModel = UserListViewModel(apoi)
 
     }
 
@@ -67,6 +62,9 @@ final class CleanCodeTests: XCTestCase {
         XCTAssertEqual(itemAtIndex?.id, 1002)
     }
     
+    
+  
+    /*
     func testFetchList_Success() async {
         let mockDelegate = MockUserListViewModelDelegate()
         userListViewModel?.viewModelDelegate = mockDelegate
@@ -75,6 +73,14 @@ final class CleanCodeTests: XCTestCase {
         XCTAssertTrue(mockDelegate.didFetchListSuccessfullyCalled)
     }
     
+    func testFetchList_Loading() async {
+        let mockDeleagte = MockUserListViewModelDelegate()
+        userListViewModel?.viewModelDelegate = mockDeleagte
+        
+        userListViewModel?.fetchList()
+        XCTAssertTrue(mockDeleagte.showLoadingCalled)
+    }
+     */
     
     func addMockData() throws {
         let json = """
@@ -104,6 +110,22 @@ final class CleanCodeTests: XCTestCase {
 
 }
 
+// implement 1
+class MockAPIService: APIService {
+    var items: [UserList] = []
+    var shouldThrowError = false
+
+     func fetchItems() async throws -> [UserList] {
+        if shouldThrowError {
+            throw NSError(domain: "MockAPIService", code: 1, userInfo: nil)
+        } else {
+            return items
+        }
+    }
+}
+
+
+// implement 2
 class MockUserListViewModelDelegate: UserListViewModelDelegate {
     var showLoadingCalled = false
     var didFetchListSuccessfullyCalled = false

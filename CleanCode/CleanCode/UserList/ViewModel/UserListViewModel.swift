@@ -7,27 +7,21 @@
 
 import Foundation
 
-protocol UserListViewModelDelegate : AnyObject {
-    func userListViewModel(_ viewModel:UserListViewModel, showLoading:Bool)
-    func userListViewModel(_ viewModel:UserListViewModel, didFetchListSuccessfully:Bool)
-    func userListViewModel(_ viewModel:UserListViewModel, didEncounterError:String)
-}
 
 class UserListViewModel {
 
-    weak var viewModelDelegate:UserListViewModelDelegate?
-    var userList:[UserList] = []
+    var userList: [UserList] = []
+    private let apiService = APIService()
     
-    
-    func fetchList() {
-        viewModelDelegate?.userListViewModel(self, showLoading: true)
-        Task {
-            do {
-                self.userList = try await APIService.request(router: APIRouter.fetchLists)
-                viewModelDelegate?.userListViewModel(self, didFetchListSuccessfully: true)
-            } catch {
-                viewModelDelegate?.userListViewModel(self, didEncounterError: error.localizedDescription)
-            }
+    func callFetchPostAPI() async {
+        do {
+            let data = try await apiService.fetchPost(router: .fetchPost)
+            let decoder = JSONDecoder()
+            let listObjs = try decoder.decode([UserList].self, from: data)
+            self.userList = listObjs
+        } catch {
+            // Handle error appropriately
+            print("Error fetching items: \(error)")
         }
     }
     

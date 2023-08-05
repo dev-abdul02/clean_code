@@ -8,20 +8,20 @@
 import Foundation
 
 enum APIRouter {
-    case fetchLists
+    case fetchPost
 }
 
 extension APIRouter  {
     var path : String {
         switch self {
-        case .fetchLists:
+        case .fetchPost:
             return "/posts"
         }
     }
     
     var method:String {
         switch self {
-        case .fetchLists:
+        case .fetchPost:
             return "GET"
         }
     }

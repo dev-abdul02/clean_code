@@ -22,9 +22,11 @@ class ViewController: UIViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        viewModel.viewModelDelegate = self
-        viewModel.fetchList()
+        Task {
+            await viewModel.callFetchPostAPI()
+            tvTableView.reloadData()
+        }
+
     }
 }
 
@@ -45,23 +47,6 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userListObj = viewModel.postAtIndex(indexPath.row)
         mainCoordinator?.showDetails(data: userListObj.title ?? "")
-    }
-}
-
-extension ViewController : UserListViewModelDelegate {
-    func userListViewModel(_ viewModel: UserListViewModel, showLoading: Bool) {
-        debugPrint("show loading")
-    }
-    
-    func userListViewModel(_ viewModel: UserListViewModel, didFetchListSuccessfully: Bool) {
-        DispatchQueue.main.async {
-            self.tvTableView.reloadData()
-        }
-
-    }
-    
-    func userListViewModel(_ viewModel: UserListViewModel, didEncounterError: String) {
-        debugPrint("Error")
     }
 }
 
