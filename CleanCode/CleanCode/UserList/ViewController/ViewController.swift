@@ -17,16 +17,28 @@ class ViewController: UIViewController, Storyboarded {
         }
     }
     
-    var viewModel = UserListViewModel()
+    private let viewModel = UserListViewModel(apiService: APIService())
     weak var mainCoordinator:MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleViewState()
         Task {
             await viewModel.callFetchPostAPI()
-            tvTableView.reloadData()
         }
-
+    }
+    
+    func handleViewState() {
+        viewModel.stateDidChange = { [weak self] state in
+            switch state {
+            case .loading:
+                print("Loading..")
+            case .success:
+                self?.tvTableView.reloadData()
+            case .error(let error):
+                print("Handle error - \(error.localizedDescription)")
+            }
+        }
     }
 }
 
